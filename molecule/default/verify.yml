@@ -1,0 +1,22 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  check_mode: true
+  tasks:
+    - name: Test openvpn package
+      ansible.builtin.apt:
+        name: openvpn
+      register: result
+    - name: Assert client package
+      ansible.builtin.assert:
+        that: result is not changed
+    - name: Test OpenVPN is active and enabled on system startup
+      ansible.builtin.systemd:
+        name: openvpn
+        state: started
+        enabled: true
+      register: result
+    - name: Assert service
+      ansible.builtin.assert:
+        that: result is not changed
