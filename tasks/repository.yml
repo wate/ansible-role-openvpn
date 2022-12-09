@@ -15,4 +15,3 @@
     filename: openvpn
     repo: deb https://packages.repository.com/debian {{ ansible_facts.distribution_release }} main
     state: present
- 

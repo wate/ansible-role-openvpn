@@ -7,7 +7,7 @@
 - name: Add/update custom setting line
   ansible.builtin.lineinfile:
     path: /etc/openvpn/openvpn.conf
-    regexp: "^(#\\s+)?option_name="
+    regexp: ^(#\s+)?option_name=
     line: option_name=option_value
 - name: Add/update custom setting block
   ansible.builtin.blockinfile:
