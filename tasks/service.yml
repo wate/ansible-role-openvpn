@@ -1,5 +1,5 @@
 ---
-- name: Service openvpn is active and enabled on system startup
+- name: Service OpenVPN is active and enabled on system startup
   ansible.builtin.systemd:
     name: openvpn
     state: started
